@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "reac-router-dom";
+import { Link } from "react-router-dom";
 
 const Menu = props => (
   <nav id="menu">

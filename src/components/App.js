@@ -1,14 +1,15 @@
 import React from "react";
-import { BrouserRouter, Route } from "react-router-dom";
-import Usuarios from "./Usuarios";
+import { BrowserRouter, Route } from "react-router-dom";
+import Usuarios from "./Usuarios/index";
 
 import Menu from "./Menu";
 
 const App = () => (
-  <BrouserRouter>
+  <BrowserRouter>
     <Menu />
+    <Usuarios />
     <Route exact path="/"></Route>
-  </BrouserRouter>
+  </BrowserRouter>
 );
 
 export default App;
