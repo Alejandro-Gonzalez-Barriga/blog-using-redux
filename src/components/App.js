@@ -1,7 +1,7 @@
-import React from "react";
+import React, {Component} from "react";
 
-function App() {
-  const ponerFilas = () => [
+class App extends Component {
+   ponerFilas = () => [
     <tr>
       <td>AlexG</td>
       <td>alxg@gmail.com</td>
