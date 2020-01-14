@@ -5,7 +5,7 @@ class Usuarios extends Component {
   constructor() {
     super();
     this.state = {
-      Usuarios: []
+      usuarios: []
     };
   }
   async componentDidMount() {
@@ -17,6 +17,7 @@ class Usuarios extends Component {
       usuarios: respuesta.data
     });
   }
+
   ponerFilas = () =>
     this.state.usuarios.map(usuario => (
       <tr key={usuario.id}>
