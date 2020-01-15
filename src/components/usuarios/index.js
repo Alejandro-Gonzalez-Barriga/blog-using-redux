@@ -31,7 +31,7 @@ class Usuarios extends Component {
     console.log(this.state.usuarios);
 
     return (
-      <div className="margen">
+      <div>
         <table className="tabla">
           <thead>
             <tr>
