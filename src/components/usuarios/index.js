@@ -1,4 +1,4 @@
-import React, { Component } from "react";                 
+import React, { Component } from "react";
 import axios from "axios";
 
 class Usuarios extends Component {
@@ -23,7 +23,7 @@ class Usuarios extends Component {
       <tr key={usuario.id}>
         <td>{usuario.name}</td>
         <td>{usuario.email}</td>
-        <td>{usuario.link}</td>
+        <td>{usuario.website}</td>
       </tr>
     ));
 
