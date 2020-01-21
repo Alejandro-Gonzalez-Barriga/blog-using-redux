@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Spinner from "../general/Spinner";
+import Fatal from "../general/Fatal";
 
 import * as usuariosActions from "../../actions/usuariosActions";
 
@@ -11,6 +12,9 @@ class Usuarios extends Component {
   ponerContenido = () => {
     if (this.props.loading) {
       return <Spinner />;
+    }
+    if (this.props.error) {
+      return <Fatal messege={this.props.error} />;
     }
     return (
       <table className="tabla">
