@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-
 import { connect } from "react-redux";
+import Spinner from "../general/Spinner";
 
 import * as usuariosActions from "../../actions/usuariosActions";
 
@@ -10,18 +10,7 @@ class Usuarios extends Component {
   }
   ponerContenido = () => {
     if (this.props.loading) {
-      return (
-        <div className="lds-roller">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      );
+      return <Spinner />;
     }
     return (
       <table className="tabla">
