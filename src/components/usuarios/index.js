@@ -8,6 +8,34 @@ class Usuarios extends Component {
   componentDidMount() {
     this.props.traerTodos();
   }
+  ponerContenido = () => {
+    if (this.props.loading) {
+      return (
+        <div className="lds-roller">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      );
+    }
+    return (
+      <table className="tabla">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Enlace</th>
+          </tr>
+        </thead>
+        <tbody>{this.ponerFilas()}</tbody>
+      </table>
+    );
+  };
 
   ponerFilas = () =>
     this.props.usuarios.map(usuario => (
@@ -21,20 +49,7 @@ class Usuarios extends Component {
   render() {
     console.log(this.props.loading);
     console.log(this.props.error);
-    return (
-      <div>
-        <table className="tabla">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Correo</th>
-              <th>Enlace</th>
-            </tr>
-          </thead>
-          <tbody>{this.ponerFilas()}</tbody>
-        </table>
-      </div>
-    );
+    return <div>{this.ponerContenido()}</div>;
   }
 }
 
