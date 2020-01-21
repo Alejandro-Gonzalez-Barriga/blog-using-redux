@@ -3,11 +3,12 @@ import { connect } from "react-redux";
 
 const Tabla = props => {
   const ponerFilas = () =>
-    props.usuarios.map(usuario => (
+    props.usuarios.map((usuario, key) => (
       <tr key={usuario.id}>
         <td>{usuario.name}</td>
         <td>{usuario.email}</td>
         <td>{usuario.website}</td>
+        <td>{key}</td>
       </tr>
     ));
 
