@@ -1,3 +1,3 @@
-export const TRAER_TODOS = "traer_usuarios";
-export const LOADING = "loading";
-export const ERROR = "error";
+export const TRAER_TODOS = "usuarios_traer_usuarios";
+export const LOADING = "usuarios_loading";
+export const ERROR = "usuarios_error";
