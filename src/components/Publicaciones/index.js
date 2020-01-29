@@ -9,10 +9,19 @@ const { traerPorUsuario: publicacionesTraerPorUsuario } = publicacionesActions;
 
 class Publicaciones extends Component {
   async componentDidMount() {
+    const {
+      usuariosTraerTodos,
+      publicacionesTraerPorUsuario,
+      match: {
+        params: { key }
+      }
+    } = this.props;
     if (!this.props.usuariosReducer.usuarios.length) {
-      await this.props.usuariosTraerTodos();
+      await usuariosTraerTodos();
     }
-    this.props.publicacionesTraerPorUsuario(this.props.match.params.key);
+    if (!("publicaciones_key" in this.props.usuariosReducer.usuarios[key])) {
+      publicacionesTraerPorUsuario(key);
+    }
   }
 
   render() {
