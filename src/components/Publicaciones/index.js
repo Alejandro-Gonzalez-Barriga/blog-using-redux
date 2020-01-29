@@ -41,16 +41,18 @@ class Publicaciones extends Component {
       return <Fatal />;
     }
 
-    if (usuariosReducer.loading) {
+    if (!usuariosReducer.usuarios.length || usuariosReducer.loading) {
       return <Spinner />;
     }
+
+    const nombre = usuariosReducer.usuarios[key].name;
+    return <h1>Publicaciones de {nombre} </h1>;
   };
 
   render() {
     console.log(this.props);
     return (
       <div>
-        <h1>Publicaciones de</h1>
         {this.props.match.params.key}
         {this.ponerUsuario()}
       </div>
