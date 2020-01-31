@@ -18,6 +18,7 @@ class Publicaciones extends Component {
         params: { key }
       }
     } = this.props;
+
     if (!this.props.usuariosReducer.usuarios.length) {
       await usuariosTraerTodos();
     }

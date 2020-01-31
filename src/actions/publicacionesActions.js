@@ -20,9 +20,11 @@ export const traerPorUsuario = key => async (dispatch, getState) => {
   const usuarios_actualizados = [...usuarios];
 
   usuarios_actualizados[key] = {
+    //this key comes from the parameter on line 7
     ...usuarios[key],
     publicaciones_key
-  };
+  }; //publicaciones_key is the place in the new array where the posts that you have
+  //already fetched are stored, this is done for efficiancy in the app
 
   dispatch({
     type: USUARIOS_TRAER_TODOS,
