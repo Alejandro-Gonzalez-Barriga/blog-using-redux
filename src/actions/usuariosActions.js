@@ -17,7 +17,7 @@ export const traerTodos = () => async dispatch => {
     console.log("Error:", error.message);
     dispatch({
       type: ERROR,
-      payload: "Upps, something went wrong please try again later"
+      payload: "Upps, something went wrong, user info not available "
     });
   }
 };
