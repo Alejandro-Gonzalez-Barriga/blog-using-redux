@@ -13,10 +13,10 @@ class Publicaciones extends Component {
   async componentDidMount() {
     const {
       usuariosTraerTodos,
-      publicacionesTraerPorUsuario,
       match: {
         params: { key }
-      }
+      },
+      publicacionesTraerPorUsuario
     } = this.props;
 
     if (!this.props.usuariosReducer.usuarios.length) {
@@ -26,28 +26,28 @@ class Publicaciones extends Component {
       return;
     }
     if (!("publicaciones_key" in this.props.usuariosReducer.usuarios[key])) {
-      publicacionesTraerPorUsuario(key);
+      await publicacionesTraerPorUsuario(key);
     }
   }
 
   ponerUsuario = () => {
     const {
-      usuariosReducer,
       match: {
         params: { key }
-      }
+      },
+      usuariosReducer
     } = this.props;
 
     if (usuariosReducer.error) {
-      return <Fatal />;
+      return <Fatal mensaje={usuariosReducer.error} />;
     }
-
-    if (!usuariosReducer.usuarios.length || usuariosReducer.loading) {
+    if (!usuariosReducer.usuarios.length || usuariosReducer.cargando) {
       return <Spinner />;
     }
 
     const nombre = usuariosReducer.usuarios[key].name;
-    return <h1>Publicaciones de {nombre} </h1>;
+
+    return <h1>Publicaciones de {nombre}</h1>;
   };
 
   ponerPublicaciones = () => {
@@ -60,9 +60,9 @@ class Publicaciones extends Component {
         params: { key }
       }
     } = this.props;
+
     if (!usuarios.length) return;
     if (usuariosReducer.error) return;
-
     if (publicacionesReducer.cargando) {
       return <Spinner />;
     }
@@ -73,11 +73,10 @@ class Publicaciones extends Component {
     if (!("publicaciones_key" in usuarios[key])) return;
 
     const { publicaciones_key } = usuarios[key];
-
     return publicaciones[publicaciones_key].map(publicacion => (
       <div
-        className="pub_titulo"
         key={publicacion.id}
+        className="pub_titulo"
         onClick={() => alert(publicacion.id)}
       >
         <h2>{publicacion.title}</h2>
@@ -87,7 +86,6 @@ class Publicaciones extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.ponerUsuario()}
@@ -96,11 +94,9 @@ class Publicaciones extends Component {
     );
   }
 }
+
 const mapStateToProps = ({ usuariosReducer, publicacionesReducer }) => {
-  return {
-    usuariosReducer,
-    publicacionesReducer
-  };
+  return { usuariosReducer, publicacionesReducer };
 };
 
 const mapDispatchToProps = {
