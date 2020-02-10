@@ -6,6 +6,8 @@ const Comentarios = props => {
       <li>hola</li>
       <li>hola</li>
       <li>hola</li>
+      <li>hola</li>
+      <li>hola</li>
     </ul>
   );
 };
