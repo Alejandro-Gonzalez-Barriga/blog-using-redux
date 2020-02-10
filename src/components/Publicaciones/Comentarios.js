@@ -1,15 +1,17 @@
 import React from "react";
 
 const Comentarios = props => {
-  return (
-    <ul>
-      <li>hola</li>
-      <li>hola</li>
-      <li>hola</li>
-      <li>hola</li>
-      <li>hola</li>
-    </ul>
-  );
+  const ponerComentarios = () =>
+    props.comentarios.map(comentario => (
+      <li>
+        <b>
+          <u>{comentario.email}</u>
+        </b>
+        <br />
+        {comentario.body}
+      </li>
+    ));
+  return <ul>{ponerComentarios()}</ul>;
 };
 
 export default Comentarios;
