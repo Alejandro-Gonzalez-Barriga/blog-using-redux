@@ -1,5 +1,5 @@
 import axios from "axios";
-import { TRAER_POR_USUARIO, LOADING, ERROR } from "../types/publicacionesTypes";
+import { ACTUALIZAR, LOADING, ERROR } from "../types/publicacionesTypes";
 import * as usuariosTypes from "../types/usuariosTypes";
 
 const { TRAER_TODOS: USUARIOS_TRAER_TODOS } = usuariosTypes;
@@ -27,7 +27,7 @@ export const traerPorUsuario = key => async (dispatch, getState) => {
     const publicaciones_actualizadas = [...publicaciones, respuesta.data];
 
     dispatch({
-      type: TRAER_POR_USUARIO,
+      type: ACTUALIZAR,
       payload: publicaciones_actualizadas
     });
 
@@ -68,7 +68,7 @@ export const abrirCerrar = (pub_key, com_key) => (dispatch, getState) => {
   publicaciones_actualizadas[pub_key][com_key] = actualizada;
 
   dispatch({
-    type: TRAER_POR_USUARIO,
+    type: ACTUALIZAR,
     payload: publicaciones_actualizadas
   });
 };
