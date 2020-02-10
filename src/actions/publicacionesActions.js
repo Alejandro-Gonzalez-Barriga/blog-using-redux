@@ -63,4 +63,12 @@ export const abrirCerrar = (pub_key, com_key) => (dispatch, getState) => {
     ...seleccionada,
     abierto: !seleccionada.abierto
   };
+  const publicaciones_actualizadas = [...publicaciones];
+  publicaciones_actualizadas[pub_key] = [...publicaciones[pub_key]];
+  publicaciones_actualizadas[pub_key][com_key] = actualizada;
+
+  dispatch({
+    type: TRAER_POR_USUARIO,
+    payload: publicaciones_actualizadas
+  });
 };
