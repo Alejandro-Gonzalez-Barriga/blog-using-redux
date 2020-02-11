@@ -113,7 +113,7 @@ export const traerComentarios = (pub_key, com_key) => async (
       payload: publicaciones_actualizadas
     });
   } catch (error) {
-    console.log(error.message);
+    console.log("coments error: " + error.message);
     dispatch({
       type: COM_ERROR,
       payload: "Comments not availble"

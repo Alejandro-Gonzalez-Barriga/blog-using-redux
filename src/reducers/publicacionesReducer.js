@@ -11,7 +11,7 @@ const INITIAL_STATE = {
   publicaciones: [],
   loading: false,
   error: "",
-  com_cargando: false,
+  com_loading: false,
   com_error: ""
 };
 

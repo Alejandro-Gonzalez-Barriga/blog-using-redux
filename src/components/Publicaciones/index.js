@@ -46,7 +46,7 @@ class Publicaciones extends Component {
     if (usuariosReducer.error) {
       return <Fatal mensaje={usuariosReducer.error} />;
     }
-    if (!usuariosReducer.usuarios.length || usuariosReducer.cargando) {
+    if (!usuariosReducer.usuarios.length || usuariosReducer.loading) {
       return <Spinner />;
     }
 
