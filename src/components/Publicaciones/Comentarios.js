@@ -6,7 +6,7 @@ import Fatal from "../general/Fatal";
 const Comentarios = props => {
   if (props.com_error) {
     console.log("error1");
-    return <Fatal mensaje={props.com_error} />;
+    return <Fatal mensage={props.com_error} />;
   }
   if (props.com_cargando && !props.comentarios.length) {
     console.log("spinner");
