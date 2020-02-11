@@ -3,17 +3,11 @@ import "../../css/spinner.css";
 
 const Spinner = props => {
   return (
-    <div className="center">
-      <div className="lds-roller">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
+    <div className="lds-ring">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
   );
 };
