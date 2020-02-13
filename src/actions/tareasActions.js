@@ -17,7 +17,7 @@ export const traerTodas = () => async dispatch => {
           }
         })
     );
-    console.log(tareas);
+    //console.log(tareas);
 
     dispatch({
       type: LOADING
@@ -27,7 +27,7 @@ export const traerTodas = () => async dispatch => {
       payload: tareas
     });
   } catch (error) {
-    console.log("Error:", error.message);
+    //console.log("Error:", error.message);
     dispatch({
       type: ERROR,
       payload: "Upps, something went wrong, to do's info not available "
