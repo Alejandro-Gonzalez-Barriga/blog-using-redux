@@ -68,11 +68,11 @@ class Publicaciones extends Component {
 
     if (!usuarios.length) return;
     if (usuariosReducer.error) return;
-    if (publicacionesReducer.cargando) {
+    if (publicacionesReducer.loading) {
       return <Spinner />;
     }
     if (publicacionesReducer.error) {
-      return <Fatal mensaje={publicacionesReducer.error} />;
+      return <Fatal message={publicacionesReducer.error} />;
     }
     if (!publicaciones.length) return;
     if (!("publicaciones_key" in usuarios[key])) return;
