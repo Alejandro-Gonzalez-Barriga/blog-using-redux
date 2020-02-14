@@ -44,7 +44,7 @@ class Publicaciones extends Component {
     } = this.props;
 
     if (usuariosReducer.error) {
-      return <Fatal mensaje={usuariosReducer.error} />;
+      return <Fatal message={usuariosReducer.error} />;
     }
     if (!usuariosReducer.usuarios.length || usuariosReducer.loading) {
       return <Spinner />;
