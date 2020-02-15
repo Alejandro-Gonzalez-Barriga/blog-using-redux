@@ -17,7 +17,7 @@ class Tareas extends Component {
       return <Spinner />;
     }
     if (error) {
-      return <Fatal mensaje={error} />;
+      return <Fatal message={error} />;
     }
 
     return Object.keys(tareas).map(usu_id => (
@@ -30,6 +30,7 @@ class Tareas extends Component {
 
   ponerTareas = usu_id => {
     const { tareas } = this.props;
+
     const por_usuario = {
       ...tareas[usu_id]
     };
