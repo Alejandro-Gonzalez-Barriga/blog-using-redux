@@ -1,10 +1,20 @@
-import axios from "axios";
-import { TRAER_TODAS, LOADING, ERROR } from "../types/tareasTypes";
+import axios from 'axios';
+import {
+  TRAER_TODAS,
+  LOADING,
+  ERROR,
+  CAMBIO_USUARIO,
+  CAMBIO_TITULO
+} from '../types/tareasTypes';
 
 export const traerTodas = () => async dispatch => {
+  dispatch({
+    type: LOADING
+  });
+
   try {
     const respuesta = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos"
+      'https://jsonplaceholder.typicode.com/todos'
     );
 
     const tareas = {};
@@ -17,20 +27,30 @@ export const traerTodas = () => async dispatch => {
           }
         })
     );
-    //console.log(tareas);
 
-    dispatch({
-      type: LOADING
-    });
     dispatch({
       type: TRAER_TODAS,
       payload: tareas
     });
   } catch (error) {
-    //console.log("Error:", error.message);
+    console.log(error.message);
     dispatch({
       type: ERROR,
-      payload: "Upps, something went wrong, to do's info not available "
+      payload: 'Tareas no disponibles.'
     });
   }
+};
+
+export const cambioUsuarioId = valor => dispatch => {
+  dispatch({
+    type: CAMBIO_USUARIO,
+    payload: valor
+  });
+};
+
+export const cambioTitulo = valor => dispatch => {
+  dispatch({
+    type: CAMBIO_TITULO,
+    payload: valor
+  });
 };
