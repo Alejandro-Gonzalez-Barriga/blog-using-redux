@@ -8,7 +8,7 @@ import {
 
 const INITIAL_STATE = {
   tareas: {},
-  cargando: false,
+  loading: false,
   error: '',
   usuario_id: '',
   titulo: ''
@@ -20,21 +20,24 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         tareas: action.payload,
-        cargando: false,
+        loading: false,
         error: ''
       };
 
     case LOADING:
-      return { ...state, cargando: true };
+      return { ...state, loading: true };
 
     case ERROR:
-      return { ...state, error: action.payload, cargando: false };
+      return { ...state, error: action.payload, loading: false };
 
     case CAMBIO_USUARIO:
       return { ...state, usuario_id: action.payload };
 
     case CAMBIO_TITULO:
       return { ...state, titulo: action.payload };
+
+    case 'agregada':
+      return { ...state, tareas: {}, loading: false, error: '' };
 
     default:
       return state;
