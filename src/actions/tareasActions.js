@@ -5,7 +5,8 @@ import {
   ERROR,
   CAMBIO_USUARIO,
   CAMBIO_TITULO,
-  GUARDAR
+  GUARDAR,
+  ACTUALIZAR
 } from '../types/tareasTypes';
 
 export const traerTodas = () => async dispatch => {
@@ -98,4 +99,24 @@ export const editar = tarea_editada => async dispatch => {
       payload: 'try again later'
     });
   }
+};
+
+export const cambioCheck = (usu_id, tar_id) => (dispatch, getState) => {
+  const { tareas } = getState().tareasReducer;
+  const seleccionada = tareas[usu_id][tar_id];
+
+  const actualizadas = {
+    ...tareas
+  };
+  actualizadas[usu_id] = {
+    ...tareas[usu_id]
+  };
+  actualizadas[usu_id][tar_id] = {
+    ...tareas[usu_id][tar_id],
+    completed: !seleccionada.completed
+  };
+  dispatch({
+    type: ACTUALIZAR,
+    payload: actualizadas
+  });
 };
