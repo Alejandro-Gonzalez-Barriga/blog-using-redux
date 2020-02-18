@@ -79,7 +79,7 @@ export const editar = tarea_editada => async dispatch => {
     type: LOADING
   });
   try {
-    const respuesta = await axios.put(
+    await axios.put(
       `https://jsonplaceholder.typicode.com/todos/${tarea_editada.id}`,
       tarea_editada
     );
@@ -120,9 +120,7 @@ export const eliminar = tar_id => async dispatch => {
     type: LOADING
   });
   try {
-    const respuesta = await axios.delete(
-      `https://jsonplaceholder.typicode.com/todos/${tar_id}`
-    );
+    await axios.delete(`https://jsonplaceholder.typicode.com/todos/${tar_id}`);
     dispatch({
       type: TRAER_TODAS,
       payload: {}
