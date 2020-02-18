@@ -30,7 +30,7 @@ class Tareas extends Component {
   };
 
   ponerTareas = usu_id => {
-    const { tareas } = this.props;
+    const { tareas, cambioCheck } = this.props;
     const por_usuario = {
       ...tareas[usu_id]
     };
