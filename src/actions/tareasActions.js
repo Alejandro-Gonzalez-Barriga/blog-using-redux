@@ -5,7 +5,7 @@ import {
   ERROR,
   CAMBIO_USUARIO,
   CAMBIO_TITULO,
-  GUARDAR,
+  AGREGADA,
   ACTUALIZAR
 } from '../types/tareasTypes';
 
@@ -61,25 +61,23 @@ export const agregar = nueva_tarea => async dispatch => {
   dispatch({
     type: LOADING
   });
+
   try {
-    const respuesta = await axios.post(
-      'https://jsonplaceholder.typicode.com/todos',
-      nueva_tarea
-    );
-    console.log(respuesta.data);
+    await axios.post('https://jsonplaceholder.typicode.com/todos', nueva_tarea);
     dispatch({
-      type: GUARDAR
+      type: AGREGADA
     });
   } catch (error) {
     console.log(error.message);
     dispatch({
       type: ERROR,
-      payload: 'try again later'
+      payload: 'Servicio no disponible en este momento.'
     });
   }
 };
 
 export const editar = tarea_editada => async dispatch => {
+  console.log(tarea_editada);
   dispatch({
     type: LOADING
   });

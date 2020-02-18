@@ -6,7 +6,7 @@ import Publicaciones from './Publicaciones';
 import Tareas from './Tareas';
 import TareasGuardar from './Tareas/Guardar';
 
-const App = () => (
+const App = props => (
   <BrowserRouter>
     <Menu />
     <div id='margen'>

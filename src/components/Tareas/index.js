@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Spinner from '../general/Spinner';
-import Fatal from '../general/Fatal';
+import Spinner from '../General/Spinner';
+import Fatal from '../General/Fatal';
 
 import * as tareasActions from '../../actions/tareasActions';
 
 class Tareas extends Component {
   componentDidMount() {
-    if (!Object.keys(this.props.tareas).length) {
-      this.props.traerTodas();
-    }
+    if (!Object.keys(this.props.tareas).length) this.props.traerTodas();
   }
 
   mostrarContenido = () => {
@@ -33,7 +31,6 @@ class Tareas extends Component {
 
   ponerTareas = usu_id => {
     const { tareas } = this.props;
-
     const por_usuario = {
       ...tareas[usu_id]
     };
@@ -45,13 +42,10 @@ class Tareas extends Component {
           defaultChecked={por_usuario[tar_id].completed}
           onChange={() => cambioCheck(usu_id, tar_id)}
         />
-
         {por_usuario[tar_id].title}
-
         <button className='m_left'>
           <Link to={`/tareas/guardar/${usu_id}/${tar_id}`}>Editar</Link>
         </button>
-
         <button className='m_left'>Eliminar</button>
       </div>
     ));
