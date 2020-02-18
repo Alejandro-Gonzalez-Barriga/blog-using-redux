@@ -4,7 +4,8 @@ import {
   LOADING,
   ERROR,
   CAMBIO_USUARIO,
-  CAMBIO_TITULO
+  CAMBIO_TITULO,
+  GUARDAR
 } from '../types/tareasTypes';
 
 export const traerTodas = () => async dispatch => {
@@ -66,7 +67,7 @@ export const agregar = nueva_tarea => async dispatch => {
     );
     console.log(respuesta.data);
     dispatch({
-      type: 'agregada'
+      type: GUARDAR
     });
   } catch (error) {
     console.log(error.message);
@@ -77,6 +78,24 @@ export const agregar = nueva_tarea => async dispatch => {
   }
 };
 
-export const editar = tarea_editada => dispatch => {
-  console.log(tarea_editada);
+export const editar = tarea_editada => async dispatch => {
+  dispatch({
+    type: LOADING
+  });
+  try {
+    const respuesta = await axios.put(
+      `https://jsonplaceholder.typicode.com/todos/${tarea_editada.id}`,
+      tarea_editada
+    );
+    console.log(respuesta.data);
+    dispatch({
+      type: GUARDAR
+    });
+  } catch (error) {
+    console.log(error.message);
+    dispatch({
+      type: ERROR,
+      payload: 'try again later'
+    });
+  }
 };

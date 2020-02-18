@@ -3,7 +3,8 @@ import {
   LOADING,
   ERROR,
   CAMBIO_USUARIO,
-  CAMBIO_TITULO
+  CAMBIO_TITULO,
+  GUARDAR
 } from '../types/tareasTypes';
 
 const INITIAL_STATE = {
@@ -36,7 +37,7 @@ export default (state = INITIAL_STATE, action) => {
     case CAMBIO_TITULO:
       return { ...state, titulo: action.payload };
 
-    case 'agregada':
+    case GUARDAR:
       return { ...state, tareas: {}, loading: false, error: '' };
 
     default:
