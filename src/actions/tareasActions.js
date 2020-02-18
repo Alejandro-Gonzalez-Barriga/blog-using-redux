@@ -35,7 +35,6 @@ export const traerTodas = () => async dispatch => {
       payload: tareas
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: ERROR,
       payload: 'Tareas no disponibles.'
@@ -68,7 +67,6 @@ export const agregar = nueva_tarea => async dispatch => {
       type: GUARDAR
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: ERROR,
       payload: 'Servicio no disponible en este momento.'
@@ -77,7 +75,6 @@ export const agregar = nueva_tarea => async dispatch => {
 };
 
 export const editar = tarea_editada => async dispatch => {
-  console.log(tarea_editada);
   dispatch({
     type: LOADING
   });
@@ -132,7 +129,6 @@ export const eliminar = tar_id => async dispatch => {
       payload: {}
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: ERROR,
       payload: 'Service not available'

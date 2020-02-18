@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 import {
   ACTUALIZAR,
   LOADING,
@@ -6,9 +6,9 @@ import {
   COM_LOADING,
   COM_ERROR,
   COM_ACTUALIZAR
-} from "../types/publicacionesTypes";
+} from '../types/publicacionesTypes';
 
-import * as usuariosTypes from "../types/usuariosTypes";
+import * as usuariosTypes from '../types/usuariosTypes';
 
 const { TRAER_TODOS: USUARIOS_TRAER_TODOS } = usuariosTypes;
 
@@ -55,10 +55,9 @@ export const traerPorUsuario = key => async (dispatch, getState) => {
       payload: usuarios_actualizados
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: ERROR,
-      payload: "Upps, posts not available"
+      payload: 'Upps, posts not available'
     });
   }
 };
@@ -113,10 +112,9 @@ export const traerComentarios = (pub_key, com_key) => async (
       payload: publicaciones_actualizadas
     });
   } catch (error) {
-    console.log("coments error: " + error.message);
     dispatch({
       type: COM_ERROR,
-      payload: "Comments not availble"
+      payload: 'Comments not availble'
     });
   }
 };
