@@ -1,10 +1,10 @@
-import axios from "axios";
-import { TRAER_TODOS, LOADING, ERROR } from "../types/usuariosTypes";
+import axios from 'axios';
+import { TRAER_TODOS, LOADING, ERROR } from '../types/usuariosTypes';
 
 export const traerTodos = () => async dispatch => {
   try {
     const respuesta = await axios.get(
-      "https://jsonplaceholder.typicode.com/users"
+      'https://jsonplaceholder.typicode.com/users'
     );
     dispatch({
       type: LOADING
@@ -14,10 +14,9 @@ export const traerTodos = () => async dispatch => {
       payload: respuesta.data
     });
   } catch (error) {
-    console.log("Error:", error.message);
     dispatch({
       type: ERROR,
-      payload: "Upps, something went wrong, user info not available "
+      payload: 'Upps, something went wrong, user info not available '
     });
   }
 };

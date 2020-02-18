@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import Spinner from "../general/Spinner";
-import Fatal from "../general/Fatal";
-import Comentarios from "./Comentarios";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import Spinner from '../general/Spinner';
+import Fatal from '../general/Fatal';
+import Comentarios from './Comentarios';
 
-import * as usuariosActions from "../../actions/usuariosActions";
-import * as publicacionesActions from "../../actions/publicacionesActions";
+import * as usuariosActions from '../../actions/usuariosActions';
+import * as publicacionesActions from '../../actions/publicacionesActions';
 
 const { traerTodos: usuariosTraerTodos } = usuariosActions;
 const {
@@ -30,7 +30,7 @@ class Publicaciones extends Component {
     if (this.props.usuariosReducer.error) {
       return;
     }
-    if (!("publicaciones_key" in this.props.usuariosReducer.usuarios[key])) {
+    if (!('publicaciones_key' in this.props.usuariosReducer.usuarios[key])) {
       await publicacionesTraerPorUsuario(key);
     }
   }
@@ -75,7 +75,7 @@ class Publicaciones extends Component {
       return <Fatal message={publicacionesReducer.error} />;
     }
     if (!publicaciones.length) return;
-    if (!("publicaciones_key" in usuarios[key])) return;
+    if (!('publicaciones_key' in usuarios[key])) return;
 
     const { publicaciones_key } = usuarios[key];
     return this.mostrarInfo(
@@ -88,7 +88,7 @@ class Publicaciones extends Component {
     publicaciones.map((publicacion, com_key) => (
       <div
         key={publicacion.id}
-        className="pub_titulo"
+        className='pub_titulo'
         onClick={() =>
           this.mostrarComentarios(pub_key, com_key, publicacion.comentarios)
         }
@@ -98,7 +98,7 @@ class Publicaciones extends Component {
         {publicacion.abierto ? (
           <Comentarios comentarios={publicacion.comentarios} />
         ) : (
-          ""
+          ''
         )}
       </div>
     ));
@@ -111,7 +111,6 @@ class Publicaciones extends Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <div>
         {this.ponerUsuario()}

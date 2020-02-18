@@ -1,15 +1,13 @@
-import React from "react";
-import { connect } from "react-redux";
-import Spinner from "../general/Spinner";
-import Fatal from "../general/Fatal";
+import React from 'react';
+import { connect } from 'react-redux';
+import Spinner from '../general/Spinner';
+import Fatal from '../general/Fatal';
 
 const Comentarios = props => {
   if (props.com_error) {
-    console.log(props.com_error);
     return <Fatal message={props.com_error} />;
   }
   if (props.com_loading && !props.comentarios.length) {
-    console.log("spinner");
     return <Spinner />;
   }
 

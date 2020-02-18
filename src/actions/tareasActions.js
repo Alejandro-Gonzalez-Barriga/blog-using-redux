@@ -83,12 +83,11 @@ export const editar = tarea_editada => async dispatch => {
       `https://jsonplaceholder.typicode.com/todos/${tarea_editada.id}`,
       tarea_editada
     );
-    console.log(respuesta.data);
+
     dispatch({
       type: GUARDAR
     });
   } catch (error) {
-    console.log(error.message);
     dispatch({
       type: ERROR,
       payload: 'try again later'
