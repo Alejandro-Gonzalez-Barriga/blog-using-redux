@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import Spinner from '../General/Spinner';
-import Fatal from '../General/Fatal';
+import Spinner from '../general/Spinner';
+import Fatal from '../general/Fatal';
 
 import * as tareasActions from '../../actions/tareasActions';
 

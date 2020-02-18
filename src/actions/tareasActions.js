@@ -88,7 +88,7 @@ export const editar = tarea_editada => async dispatch => {
     );
     console.log(respuesta.data);
     dispatch({
-      type: GUARDAR
+      type: AGREGADA
     });
   } catch (error) {
     console.log(error.message);
