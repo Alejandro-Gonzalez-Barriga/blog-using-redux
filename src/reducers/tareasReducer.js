@@ -4,7 +4,7 @@ import {
   ERROR,
   CAMBIO_USUARIO,
   CAMBIO_TITULO,
-  AGREGADA,
+  GUARDAR,
   ACTUALIZAR
 } from '../types/tareasTypes';
 
@@ -40,7 +40,7 @@ export default (state = INITIAL_STATE, action) => {
     case CAMBIO_TITULO:
       return { ...state, titulo: action.payload };
 
-    case AGREGADA:
+    case GUARDAR:
       return {
         ...state,
         tareas: {},

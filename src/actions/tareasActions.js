@@ -5,7 +5,7 @@ import {
   ERROR,
   CAMBIO_USUARIO,
   CAMBIO_TITULO,
-  AGREGADA,
+  GUARDAR,
   ACTUALIZAR
 } from '../types/tareasTypes';
 
@@ -65,7 +65,7 @@ export const agregar = nueva_tarea => async dispatch => {
   try {
     await axios.post('https://jsonplaceholder.typicode.com/todos', nueva_tarea);
     dispatch({
-      type: AGREGADA
+      type: GUARDAR
     });
   } catch (error) {
     console.log(error.message);
@@ -88,7 +88,7 @@ export const editar = tarea_editada => async dispatch => {
     );
     console.log(respuesta.data);
     dispatch({
-      type: AGREGADA
+      type: GUARDAR
     });
   } catch (error) {
     console.log(error.message);
