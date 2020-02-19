@@ -8,10 +8,16 @@ import * as tareasActions from '../../actions/tareasActions';
 
 class Tareas extends Component {
   componentDidMount() {
-    if (!Object.keys(this.props.tareas).length) this.props.traerTodas();
+    if (!Object.keys(this.props.tareas).length) {
+      this.props.traerTodas();
+    }
   }
   componentDidUpdate() {
-    if (!Object.keys(this.props.tareas).length) this.props.traerTodas();
+    const { tareas, loading, traerTodas } = this.props;
+    if (!Object.keys(tareas).length && !loading) {
+      traerTodas();
+    }
+    console.log('update', this.props);
   }
 
   mostrarContenido = () => {
